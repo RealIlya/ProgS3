@@ -8,7 +8,7 @@
 #include "level1/opers.hpp"
 #endif
 
-// #ifdef LEVEL0
+#ifdef LEVEL0
 TEST_CASE("Level 0 test case") {
     SECTION("From 10 to 2, 8, 16, 3") {
         SECTION("to bin") {
@@ -24,6 +24,8 @@ TEST_CASE("Level 0 test case") {
             REQUIRE(from_dec_to_n_ric("85.71875", 8, 2) == "125.56");
             REQUIRE(from_dec_to_n_ric("688.21875", 8, 2) == "1260.16");
             REQUIRE(from_dec_to_n_ric("724.3125", 8, 2) == "1324.24");
+
+            REQUIRE(from_dec_to_n_ric("724.3125", 8, -1) == "1324.24");
         }
         SECTION("to hex") {
             REQUIRE(from_dec_to_n_ric("457", 16, 0) == "1C9");
@@ -43,6 +45,8 @@ TEST_CASE("Level 0 test case") {
         }
         SECTION("from oct") {
             REQUIRE(from_n_ric_to_dec("134.22", 8, 5) == "92.28125");
+
+            REQUIRE(from_n_ric_to_dec("134.22", 8, -1) == "92.28125");
         }
         SECTION("from hex") {
             REQUIRE(from_n_ric_to_dec("51.88", 16, 5) == "81.53125");
@@ -52,7 +56,7 @@ TEST_CASE("Level 0 test case") {
         }
     }
 }
-// #endif
+#endif
 
 #ifdef LEVEL1
 TEST_CASE("Level 1 test case") {

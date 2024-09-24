@@ -6,7 +6,7 @@
 #include "share.hpp"
 
 std::string from_dec_to_n_ric(std::string num, int r, int precision) {
-    if ((std::stod(num) < 0) || (r <= 0) || (precision < 0))
+    if ((std::stod(num) < 0) || (r <= 0) || (precision < -1))
         throw std::logic_error("Arguments are invalid!");
 
     std::string res;
@@ -18,10 +18,10 @@ std::string from_dec_to_n_ric(std::string num, int r, int precision) {
         int_part /= r;
     }
 
-    if (precision > 0) res += '.';
+    if (precision > 0 || precision == -1) res += '.';
 
     int int_rest;
-    for (int i = 0; i < precision; i++) {
+    for (int i = 0; (i < precision) || ((precision == -1) && (float_part != 0.0)); i++) {
         float_part *= r;
 #ifdef DEBUG
         std::cout << std::showpoint << "#" << i + 1 << "\t|" << float_part << "\t|";
@@ -37,7 +37,7 @@ std::string from_dec_to_n_ric(std::string num, int r, int precision) {
 }
 
 std::string from_n_ric_to_dec(std::string num, int r, int precision) {
-    if ((std::stod(num) < 0) || (r <= 0) || (precision < 0))
+    if ((std::stod(num) < 0) || (r <= 0) || (precision < -1))
         throw std::logic_error("Arguments are invalid!");
 
     double res = 0.0;
@@ -58,7 +58,19 @@ std::string from_n_ric_to_dec(std::string num, int r, int precision) {
 #endif
     }
 
-    char buf[std::to_string(res).length() + precision];
+    std::string res_str = std::to_string(res);
+
+    if (precision == -1) {
+        dot_pos = res_str.find('.');
+        for (int i = int(res_str.length()) - 1; i >= 0; i--) {
+            if (res_str[i] == '0' && res_str[i - 1] != '0' && res_str[i - 1] != '.') {
+                std::cout << "\t\t\t\t" << res_str << " " << i << std::endl;
+                precision = i - dot_pos - 1;
+            }
+        }
+    }
+
+    char buf[res_str.length() + precision];
     std::sprintf(buf, "%.*f", precision, res);
     return buf;
 }
