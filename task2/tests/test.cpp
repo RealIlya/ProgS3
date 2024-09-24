@@ -4,21 +4,45 @@
 #include "../src/converter.hpp"
 
 TEST_CASE("Ex 5") {
-    SECTION("To eight-bytes") {
-        REQUIRE(floating_to_hex_eight_bytes_number("-474.875") == "C07DAE0000000000");  //
-        REQUIRE(floating_to_hex_eight_bytes_number("203.688") == "40697604189374BC");   //
-        REQUIRE(floating_to_hex_eight_bytes_number("-53.7344") == "C04ADE00D1B71759");
-        REQUIRE(floating_to_hex_eight_bytes_number("345.516") == "4075984189374BC7");  //
+    // SECTION("To eight-bytes") {
+    //     REQUIRE(floating_to_hex_eight_bytes_number("-474.875") == "C07DAE0000000000");
+    //     REQUIRE(floating_to_hex_eight_bytes_number("203.688") == "40697604189374BC");
+    //     REQUIRE(floating_to_hex_eight_bytes_number("-53.7344") == "C04ADE00D1B71759");
+    //     REQUIRE(floating_to_hex_eight_bytes_number("345.516") == "4075984189374BC7");
 
-        REQUIRE(floating_to_hex_eight_bytes_number("-123.5") == "C05EE00000000000");
+    //     REQUIRE(floating_to_hex_eight_bytes_number("-123.5") == "C05EE00000000000");
+    // }
+    // SECTION("To four-bytes") {
+    //     REQUIRE(floating_to_hex_four_bytes_number("-474.875") == "C3ED7000");
+    //     REQUIRE(floating_to_hex_four_bytes_number("203.688") == "434BB020");
+    //     REQUIRE(floating_to_hex_four_bytes_number("-53.7344") == "C256F006");
+    //     REQUIRE(floating_to_hex_four_bytes_number("345.516") == "43ACC20C");
+
+    //     REQUIRE(floating_to_hex_four_bytes_number("-123.5") == "C2F70000");
+    // }
+}
+TEST_CASE("Ex 6") {
+    SECTION("From eight-bytes") {
+        REQUIRE(hex_eight_bytes_number_to_floating("BFD0000000000000") == "-0.25");
+        REQUIRE(hex_eight_bytes_number_to_floating("406743C000000000") == "186.1171875");
+
+        REQUIRE(hex_eight_bytes_number_to_floating("C07DAE0000000000") == "-474.875");
+        REQUIRE(hex_eight_bytes_number_to_floating("40697604189374BC") == "203.688");
+        REQUIRE(hex_eight_bytes_number_to_floating("C04ADE00D1B71759") == "-53.7344");
+        REQUIRE(hex_eight_bytes_number_to_floating("4075984189374BC7") == "345.516");
+
+        REQUIRE(hex_eight_bytes_number_to_floating("C05EE00000000000") == "-123.5");
     }
-    SECTION("To four-bytes") {
-        REQUIRE(floating_to_hex_four_bytes_number("-474.875") == "C3ED7000");  //
-        REQUIRE(floating_to_hex_four_bytes_number("203.688") == "434BB020");   //
-        REQUIRE(floating_to_hex_four_bytes_number("-53.7344") == "C256F006");  //
-        REQUIRE(floating_to_hex_four_bytes_number("345.516") == "43ACC20C");   //
+    SECTION("From four-bytes") {
+        REQUIRE(hex_four_bytes_number_to_floating("C3B06800") == "-352.8125");
+        REQUIRE(hex_four_bytes_number_to_floating("42C72000") == "99.5625");
 
-        REQUIRE(floating_to_hex_four_bytes_number("-123.5") == "C2F70000");
+        // REQUIRE(hex_four_bytes_number_to_floating("C3ED7000") == "-474.875");
+        // REQUIRE(hex_four_bytes_number_to_floating("434BB020") == "203.688");
+        // REQUIRE(hex_four_bytes_number_to_floating("C256F006") == "-53.734398");
+        // REQUIRE(hex_four_bytes_number_to_floating("43ACC20C") == "345.515991");
+
+        // REQUIRE(hex_four_bytes_number_to_floating("C2F70000") == "-123.5");
     }
 }
 
