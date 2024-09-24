@@ -64,7 +64,6 @@ std::string from_n_ric_to_dec(std::string num, int r, int precision) {
         dot_pos = res_str.find('.');
         for (int i = int(res_str.length()) - 1; i >= 0; i--) {
             if (res_str[i] == '0' && res_str[i - 1] != '0' && res_str[i - 1] != '.') {
-                std::cout << "\t\t\t\t" << res_str << " " << i << std::endl;
                 precision = i - dot_pos - 1;
             }
         }
