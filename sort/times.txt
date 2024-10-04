@@ -1,0 +1,29 @@
+---------------------------------
+Array size: 10
+std quicksort: 0.00000086
+our quicksort: 0.00000101
+Sorted: 1---------------------------------
+Array size: 100
+std quicksort: 0.00000793
+our quicksort: 0.00000929
+Sorted: 1---------------------------------
+Array size: 1000
+std quicksort: 0.00011880
+our quicksort: 0.00012547
+Sorted: 1---------------------------------
+Array size: 10000
+std quicksort: 0.00139052
+our quicksort: 0.00152371
+Sorted: 1---------------------------------
+Array size: 100000
+std quicksort: 0.00623800
+our quicksort: 0.00640066
+Sorted: 1---------------------------------
+Array size: 1000000
+std quicksort: 0.07051532
+our quicksort: 0.07662780
+Sorted: 1---------------------------------
+Array size: 10000000
+std quicksort: 0.81192173
+our quicksort: 0.88521226
+Sorted: 1---------------------------------
