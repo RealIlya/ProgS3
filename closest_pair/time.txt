@@ -1,0 +1,11 @@
+---------------------------------
+Array size: 10
+brute force: 0.00000192
+EEEdivide and : 0.00001281
+Sorted: 9785748488.52064705---------------------------------
+Array size: 100
+brute force: 0.00006394
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEdivide and : 0.00017771
+Sorted: 982284270.74402297---------------------------------
+Array size: 1000
+brute force: 0.00613621
