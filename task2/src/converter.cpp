@@ -25,8 +25,18 @@ std::string floating_to_hex_n_bytes_number(std::string floating, const int bits_
     std::string number_bin = from_dec_to_n_ric(floating, 2, -1);
     size_t dot_pos = number_bin.find('.');
 
-    size_t order = dot_pos - 1;
-    size_t offset_order = order + (size_t(std::pow(2, bits_order_count - 1)) - 1);  // вместо возведения в степень используем битовый сдвиг влево
+    size_t order;
+    if (floating.front() == '0') {
+        size_t c = 1;
+        for (auto p = number_bin.begin() + dot_pos + 1; p < number_bin.end(); p++) {
+            c++;
+        }
+        order = -c;
+    } else {
+        order = dot_pos - 1;
+    }
+
+    size_t offset_order = order + (size_t(std::pow(2, bits_order_count - 1)) - 1);
 
 #ifdef DEBUG
     std::cout << "\t| number bin: " << number_bin << "\t| offset order: " << offset_order << std::endl;
@@ -88,21 +98,29 @@ std::string hex_n_bytes_number_to_floating(std::string hex, const int bits_order
     long long order = offset_order - (size_t(std::pow(2, bits_order_count - 1)) - 1);
     std::string number_bin = "1" + mantissa.substr(0, offset_order);
 
+#ifdef DEBUG
+    std::cout << "\t| offset order: " << offset_order << "\t| offset order bin: " << offset_order_bin << "\t| mantissa: " << mantissa << "\n\t| number bin: " << number_bin;
+#endif
     size_t dot_pos;
     if (order < 0LL) {
         dot_pos = 1;
-        number_bin.insert(number_bin.begin(), std::abs(static_cast<long long>(order)), '0');
-
+        order = abs(order);
+        if (order > bits_count) {
+            // number_bin.insert(number_bin.begin(), bits_count, '0');
+        } else {
+            number_bin.insert(number_bin.begin(), std::abs(static_cast<long long>(order)), '0');
+        }
     } else {
         dot_pos = order + 1;
     }
+
+#ifdef DEBUG
+    std::cout << "\t| order" << order << std::endl;
+#endif
+
     number_bin.insert(number_bin.begin() + dot_pos, '.');
 
     number_bin.append(bits_count - number_bin.length(), '0');
-
-#ifdef DEBUG
-    std::cout << "\t| offset order: " << offset_order << "\t| offset order bin: " << offset_order_bin << "\t| mantissa: " << mantissa << "\n\t| number bin: " << number_bin << std::endl;
-#endif
 
     std::string res = (negative ? "-" : "") + from_n_ric_to_dec(number_bin, 2, -1);
 

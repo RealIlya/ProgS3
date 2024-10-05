@@ -23,7 +23,7 @@ release: ${MAIN_OBJ}
 	$(call build_target,${CXXFLAGS} -O3,$^,$@)
 
 debug: ${MAIN_OBJ}
-	$(call build_target,${CXXFLAGS},$^,$@)
+	$(call build_target,${CXXFLAGS},$^,$@ -DDEBUG)
 
 test: ${TEST_OBJ}
 	$(call build_target,${CXXFLAGS},$^,$@,-lm,${BUILD_PATH}/catch_amalgamated.o)
