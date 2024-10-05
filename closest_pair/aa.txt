@@ -1,0 +1,22 @@
+---------------------------------
+Array size: 10
+brute force: 0,00000250
+divide and conquer: 0,00001724
+---------------------------------
+Array size: 100
+brute force: 0,00013717
+divide and conquer: 0,00039948
+---------------------------------
+Array size: 1000
+brute force: 0,00691069
+divide and conquer: 0,01061844
+---------------------------------
+Array size: 10000
+brute force: 0,59917095
+divide and conquer: 0,85719268
+---------------------------------
+Array size: 100000
+brute force: 58,76697466
+divide and conquer: 81,34333672
+---------------------------------
+Array size: 1000000

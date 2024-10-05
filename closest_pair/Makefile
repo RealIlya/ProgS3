@@ -10,6 +10,6 @@ test: clean
 	g++ *.o -o test.out
 
 time:	clean
-	g++ timetest.cpp $(CPP_FILES) -O3 -c
-	g++ *.o -O3 -o time.out
+	g++ timetest.cpp $(CPP_FILES) -c -O3
+	g++ -O3 *.o -o time.out
 	./time.out > time.txt
