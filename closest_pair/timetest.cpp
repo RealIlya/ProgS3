@@ -42,7 +42,7 @@ double myrandom(long p) {
 
 int main() {
     std::srand(std::time(NULL));
-    std::vector<int> sizes = {1000000, 10000000};
+    std::vector<int> sizes = {10, 100, 1000, 10000, 100000, 1000000, 10000000};
     std::cout << "---------------------------------" << std::endl;
 
     for (int size : sizes) {
@@ -59,12 +59,12 @@ int main() {
         // for (auto i : arr) std::cout << i << ' ';
         // std::cout << '\n';
         std::pair<Point, Point> bres = brute_force_time(arr);
-        // std::pair<Point, Point> dres = div_conq_time(arr);
-        // bool eq = false;
-        // eq = (bres.first == dres.first && bres.second == dres.second) ||
-        //      (bres.first == dres.second && bres.second == dres.first);
-        // std::cout << "OK: " << eq << std::endl;
-        // std::cout << "---------------------------------" << std::endl;
+        std::pair<Point, Point> dres = div_conq_time(arr);
+        bool eq = false;
+        eq = (bres.first == dres.first && bres.second == dres.second) ||
+             (bres.first == dres.second && bres.second == dres.first);
+        std::cout << "OK: " << eq << std::endl;
+        std::cout << "---------------------------------" << std::endl;
     }
 
     return 0;

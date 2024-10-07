@@ -1,29 +1,29 @@
 ---------------------------------
 Array size: 10
-std quicksort: 0.00000086
-our quicksort: 0.00000101
+std quicksort: 0.00000025
+our quicksort: 0.00000024
 Sorted: 1---------------------------------
 Array size: 100
-std quicksort: 0.00000793
-our quicksort: 0.00000929
+std quicksort: 0.00000292
+our quicksort: 0.00000302
 Sorted: 1---------------------------------
 Array size: 1000
-std quicksort: 0.00011880
-our quicksort: 0.00012547
+std quicksort: 0.00003608
+our quicksort: 0.00003677
 Sorted: 1---------------------------------
 Array size: 10000
-std quicksort: 0.00139052
-our quicksort: 0.00152371
+std quicksort: 0.00043669
+our quicksort: 0.00046400
 Sorted: 1---------------------------------
 Array size: 100000
-std quicksort: 0.00623800
-our quicksort: 0.00640066
+std quicksort: 0.00557481
+our quicksort: 0.00761848
 Sorted: 1---------------------------------
 Array size: 1000000
-std quicksort: 0.07051532
-our quicksort: 0.07662780
+std quicksort: 0.06305214
+our quicksort: 0.06672752
 Sorted: 1---------------------------------
 Array size: 10000000
-std quicksort: 0.81192173
-our quicksort: 0.88521226
+std quicksort: 0.70683570
+our quicksort: 0.74612818
 Sorted: 1---------------------------------
