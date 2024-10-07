@@ -35,6 +35,8 @@ std::string from_dec_to_n_ric(const std::string& num, int r, int precision) {
         int_part /= r;
     }
 
+    if (res.empty()) res = "0";
+
     if (precision > 0 || precision == -1) res += '.';
 
 #ifdef DEBUG

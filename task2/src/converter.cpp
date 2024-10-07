@@ -26,10 +26,14 @@ std::string floating_to_hex_n_bytes_number(std::string floating, const int bits_
     size_t dot_pos = number_bin.find('.');
 
     size_t order;
+    size_t c = 0;
     if (floating.front() == '0') {
-        size_t c = 1;
+        c = 1;
         for (auto p = number_bin.begin() + dot_pos + 1; p < number_bin.end(); p++) {
-            c++;
+            if (*p == '0')
+                c++;
+            else
+                break;
         }
         order = -c;
     } else {
@@ -39,7 +43,7 @@ std::string floating_to_hex_n_bytes_number(std::string floating, const int bits_
     size_t offset_order = order + (size_t(std::pow(2, bits_order_count - 1)) - 1);
 
 #ifdef DEBUG
-    std::cout << "\t| number bin: " << number_bin << "\t| offset order: " << offset_order << std::endl;
+    std::cout << "\t| c: " << c << "\t| number bin: " << number_bin << "\t| offset order: " << offset_order << std::endl;
 #endif
 
     std::string offset_order_bin = from_dec_to_n_ric(std::to_string(offset_order), 2, 0);
@@ -48,7 +52,7 @@ std::string floating_to_hex_n_bytes_number(std::string floating, const int bits_
     std::cout << "\t| dot pos: " << dot_pos << "\t| order: " << order << "\t| offset order bin: " << offset_order_bin;
 #endif
 
-    std::string mantissa = number_bin.substr(1, dot_pos - 1) + number_bin.substr(dot_pos + 1);
+    std::string mantissa = number_bin.substr(1, dot_pos - 1) + number_bin.substr(dot_pos + 1 + c);
     if (mantissa.length() >= size_t(bits_count))
         mantissa = mantissa.substr(0, bits_count - 1 - bits_order_count);
     else
@@ -101,26 +105,20 @@ std::string hex_n_bytes_number_to_floating(std::string hex, const int bits_order
 #ifdef DEBUG
     std::cout << "\t| offset order: " << offset_order << "\t| offset order bin: " << offset_order_bin << "\t| mantissa: " << mantissa << "\n\t| number bin: " << number_bin;
 #endif
-    size_t dot_pos;
-    if (order < 0LL) {
-        dot_pos = 1;
-        order = abs(order);
-        if (order > bits_count) {
-            // number_bin.insert(number_bin.begin(), bits_count, '0');
-        } else {
-            number_bin.insert(number_bin.begin(), std::abs(static_cast<long long>(order)), '0');
-        }
+    size_t dot_pos = 1;
+    if (order < 0LL && std::abs(order) <= bits_count) {
+        number_bin.insert(number_bin.begin(), std::abs(static_cast<long long>(order)), '0');
     } else {
         dot_pos = order + 1;
     }
 
 #ifdef DEBUG
-    std::cout << "\t| order" << order << std::endl;
+    std::cout << "\t| order: " << order << std::endl;
 #endif
 
     number_bin.insert(number_bin.begin() + dot_pos, '.');
 
-    number_bin.append(bits_count - number_bin.length(), '0');
+    number_bin.append(abs(bits_count - number_bin.length()), '0');
 
     std::string res = (negative ? "-" : "") + from_n_ric_to_dec(number_bin, 2, -1);
 
