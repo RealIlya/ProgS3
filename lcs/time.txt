@@ -1,0 +1,55 @@
+---------------------------------
+First size:  10
+Second size: 10
+slow lcs: 0.00008337
+fast lcs: 0.00000632
+Equal answer: 1
+---------------------------------
+First size:  10
+Second size: 100
+slow lcs: 0.00015857
+fast lcs: 0.00003991
+Equal answer: 1
+---------------------------------
+First size:  10
+Second size: 1000
+slow lcs: 0.00054762
+fast lcs: 0.00037414
+Equal answer: 1
+---------------------------------
+First size:  10
+Second size: 10000
+slow lcs: 0.00047708
+fast lcs: 0.00534713
+Equal answer: 1
+---------------------------------
+First size:  15
+Second size: 15
+slow lcs: 0.00384065
+fast lcs: 0.00000841
+Equal answer: 1
+---------------------------------
+First size:  20
+Second size: 20
+slow lcs: 0.11842049
+fast lcs: 0.00000977
+Equal answer: 1
+---------------------------------
+First size:  25
+Second size: 25
+slow lcs: 4.39957564
+fast lcs: 0.00001512
+Equal answer: 1
+---------------------------------
+First size:  25
+Second size: 100
+slow lcs: 6.13455331
+fast lcs: 0.00005044
+Equal answer: 1
+---------------------------------
+First size:  25
+Second size: 10000
+slow lcs: 18.86057140
+fast lcs: 0.01480263
+Equal answer: 1
+---------------------------------

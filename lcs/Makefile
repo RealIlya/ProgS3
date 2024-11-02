@@ -5,11 +5,11 @@ all: test
 clean:
 	rm -f *.o
 
-test: clean
+test: 
 	g++ main.cpp lcs_test.cpp $(CPP_FILES) -c -O3
-	g++ -O3 *.o -o test.out
+	g++ -O3 main.o lcs_test.o lcs.o -o test.out
 
-time:	clean
+time:	
 	g++ timetest.cpp $(CPP_FILES) -c -O3
-	g++ -O3 *.o -o time.out
+	g++ -O3 timetest.o lcs.o -o time.out
 	./time.out > time.txt
