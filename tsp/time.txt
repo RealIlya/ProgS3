@@ -1,0 +1,56 @@
+---------------------------------
+Size:  2
+1)brutsp time: 0.00000873 length: 16.34469472
+2)bnbtsp time: 0.00002183 length: 16.34469472
+3)gretsp time: 0.00000159 length: 16.34469472
+---------------------------------
+Size:  3
+1)brutsp time: 0.00000742 length: 13.04624069
+2)bnbtsp time: 0.00002017 length: 13.04624069
+3)gretsp time: 0.00000509 length: 13.04624069
+---------------------------------
+Size:  4
+1)brutsp time: 0.00003144 length: 14.34528551
+2)bnbtsp time: 0.00006797 length: 14.34528551
+3)gretsp time: 0.00000782 length: 14.34528551
+---------------------------------
+Size:  5
+1)brutsp time: 0.00014231 length: 19.99326180
+2)bnbtsp time: 0.00023568 length: 19.99326180
+3)gretsp time: 0.00002122 length: 19.99326180
+---------------------------------
+Size:  6
+1)brutsp time: 0.00089075 length: 17.48939844
+2)bnbtsp time: 0.00136922 length: 17.48939844
+3)gretsp time: 0.00001666 length: 17.48939844
+---------------------------------
+Size:  7
+1)brutsp time: 0.00522972 length: 13.76680983
+2)bnbtsp time: 0.00385624 length: 13.76680983
+3)gretsp time: 0.00001746 length: 15.80070312
+---------------------------------
+Size:  8
+1)brutsp time: 0.03418176 length: 24.06466339
+2)bnbtsp time: 0.02449661 length: 24.06466339
+3)gretsp time: 0.00001673 length: 24.06466339
+---------------------------------
+Size:  9
+1)brutsp time: 0.25599181 length: 31.47099104
+2)bnbtsp time: 0.22316500 length: 31.47099104
+3)gretsp time: 0.00002371 length: 31.47099104
+---------------------------------
+Size:  10
+1)brutsp time: 2.61397543 length: 31.16783955
+2)bnbtsp time: 2.16353519 length: 31.16783955
+3)gretsp time: 0.00002850 length: 36.84425250
+---------------------------------
+Size:  11
+1)brutsp time: 28.96748060 length: 31.77381270
+2)bnbtsp time: 17.66188800 length: 31.77381270
+3)gretsp time: 0.00003308 length: 35.18102243
+---------------------------------
+Size:  12
+1)brutsp time: 347.90716804 length: 28.32704899
+2)bnbtsp time: 160.46587404 length: 28.81962628
+3)gretsp time: 0.00004183 length: 36.58444622
+---------------------------------
