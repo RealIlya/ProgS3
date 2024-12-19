@@ -1,9 +1,16 @@
 #include <algorithm>
+#include <bitset>
+#include <chrono>
+#include <ctime>
+#include <future>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <map>
+#include <random>
 #include <set>
 #include <stdexcept>
+#include <thread>
 #include <tuple>
 #include <unordered_map>
 #include <vector>
@@ -23,3 +30,11 @@ void BnB(const Graph& G, std::vector<int>& visited, int visited_mask,
 std::vector<int> TSP_BnB(const Graph& G, int start);
 std::vector<int> TSP_Greedy(const Graph& G, int start);
 double Length(const Graph& G, const std::vector<int>& path);
+std::vector<int> Transform(const std::vector<int>& path, int A, int B, int C,
+                           int D);
+std::vector<int> TSP_LS(const Graph& graph);
+std::vector<int> geneticAlgorithm(const Graph& graph, int N, int populationSize,
+                                  double pm, int generations);
+std::vector<int> TSP_GA(const Graph& graph, size_t populationSize,
+                        size_t numBest, double mutationRate,
+                        size_t numGenerations, size_t maxIterations);
